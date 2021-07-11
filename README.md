@@ -1,3 +1,3 @@
 # GitHub Essentials
 
-This is a sample project to play with git commands.
+This is a beginner project to practice with git commands.
