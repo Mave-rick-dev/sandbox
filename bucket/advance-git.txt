@@ -1,0 +1,13 @@
+To only combine changes from the same topic in a single commit.
+git add -p <file-path>
+- deals with the file staging at patch level, hence the letter p.
+- observation: using partial flag prevents the changes to be staged (until next commit??)
+
+pull requests are always based on branches not on individual commits.
+- in practice, we are simply creating a new branch that we want to inlcude in the main (some other branch) as a PR
+
+to fork a github repository
+- is to have excact replica of the concerned repo in your personal github account
+- once you fork a repo, you can raise PR with your changes onto its original hub
+- scenario can be, you forked the kafka open source project repo, added custom audit logger impls, then wants to forward it to your forked kafka repo to run it with your newly added feature
+- for worthy changes, you might request the official kafka repo maintainer for review by sending a PR through your fored kafka repo
