@@ -3,11 +3,34 @@ git add -p <file-path>
 - deals with the file staging at patch level, hence the letter p.
 - observation: using partial flag prevents the changes to be staged (until next commit??)
 
+Branching strategies:
+    i. GitHub flow
+        - main + feature branch only
+    ii. GitFlow
+        - multiple dedicated branches dealing with specific phase during dev
+
+But branching strategies are business specific
+
+Long vs Short-Lived Branches
+ - (main, develop, stag) vs (feature, fixes, poc)
+ - no direct commits on long-lived branches i.e. only through a merge|rebase
+    - quality: tested, reviewed
+    - bundled release
+ - shot-lived branch is rebased on the long-lived branch then deleted
+
 pull requests are always based on branches not on individual commits.
 - in practice, we are simply creating a new branch that we want to inlcude in the main (some other branch) as a PR
 
-to fork a github repository
-- is to have excact replica of the concerned repo in your personal github account
+MR (GitLab) vs PR (GitHub)
+- pull a distant code-base into yours
+- to have a second pair of eye
+
+to fork a GitHub repository
+- is to have pull the entire project of the concerned repo in your personal space
 - once you fork a repo, you can raise PR with your changes onto its original hub
 - scenario can be, you forked the kafka open source project repo, added custom audit logger impls, then wants to forward it to your forked kafka repo to run it with your newly added feature
-- for worthy changes, you might request the official kafka repo maintainer for review by sending a PR through your fored kafka repo
+- for worthy changes, you might request the official kafka repo maintainer for review by sending a PR through your forked kafka repo
+
+Merge Conflicts
+- courtesy to git
+- changes when contradicts, for instance, same line of code is changed in two commits in two different branches
