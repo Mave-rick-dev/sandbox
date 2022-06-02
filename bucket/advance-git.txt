@@ -16,13 +16,11 @@ Long vs Short-Lived Branches
  - no direct commits on long-lived branches i.e. only through a merge|rebase
     - quality: tested, reviewed
     - bundled release
- - shot-lived branch is rebased on the long-lived branch then deleted
-
+ - shot-lived branch is rebased|merged on the long-lived branch then deleted
 
 MR (GitLab) vs PR (GitHub)
-- pull a distant code-base into yours
+- to integrate changes from one branch to another
 - to have a second pair of eye
-
 
 Merge Conflicts
 - courtesy to git
@@ -52,7 +50,36 @@ to fork a GitHub repository
 
 
 Merge vs Rebase
-- the prior refers combining varying changes of two diff branches usually into a long-lived branch
+
+Scenario: Want to migrate changes from B2 into B1
+(CC)--->(C1)-->(C2)-->(C2)    ]--------------------] Branch-1: development
+   |
+   |-->(CA)-->(CB)            ]--------------------] Branch-2: fixes
+
+
+Git Merge flow:
+(CC)--->(C1)-->(C2)-->(C2)--->(C3)
+   |                            |
+   |-->(CA)-->(CB)--------------|
+
+    - combines varying changes of two diff branches
     - marked by the commit after merge
-- the latter rewrites the commit history, in a sense append the commits from the branches
-    -
+        - a single commit for all changes in the short-lived branch
+    - exhibits non-linear history log
+    - all logs of merge history, hence preferred for tracking the origin(branch) of each commit
+    - contributors can track the origin of each foreign commits in their branch
+    - git marks the Common Commit (CC) point for B2
+    - then migrates the changes into the B1
+    - CA + CB = C3 means entire B2 changes will be reflected in B1 as C3
+
+
+Git Rebase flow:
+(CC)--->(C1)-->(C2)-->(C2)--->(CA)-->(CB)  ]--------] Branch-1: main
+   |                      |
+   |-->(CA)-->(CB)--------|                ]--------] Branch-2: fixes
+
+    - CA and CB (parked commits) is rewritten in B1 git history
+    - rewrites the commit history, in a sense appends the commits of short-lived branch
+    - exhibits linear history log
+    - no logs of merged history, hence cannot pinpoint the origin branch of appended commit
+    - suitable for private project
