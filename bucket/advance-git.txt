@@ -18,12 +18,34 @@ Long vs Short-Lived Branches
     - bundled release
  - shot-lived branch is rebased on the long-lived branch then deleted
 
-pull requests are always based on branches not on individual commits.
-- in practice, we are simply creating a new branch that we want to inlcude in the main (some other branch) as a PR
 
 MR (GitLab) vs PR (GitHub)
 - pull a distant code-base into yours
 - to have a second pair of eye
+
+
+Merge Conflicts
+- courtesy to git
+<<<<<<< HEAD
+- changes when contradicts, for instance, same line of code is changed in two commits in two different branches
+=======
+- changes when contradicts, for instance, same line of code is changed in two commits in two different branches
+- conflicts marker:
+    - after merge command -- CONFLICT (content): Merge conflict in <fileName>
+    - status [Merging <branchName>] at bottom-right corner in IntelliJ
+    - after git status -- You have unmerged paths.
+                           (fix conflicts and run "git commit")
+                           (use "git merge --abort" to abort the merge)
+- conflicts resolved marker:
+    - after removing conflicts -- On branch newBranch
+      All conflicts fixed, but you are still merging.
+       (use "git commit" to conclude merge)
+- merge concludes only after committing the resolved conflicts
+- useful merge tools:
+    - mergetool -- to modify or delete file, or to abort merge
+
+pull requests are always based on branches not on individual commits.
+- in practice, we are simply creating a new branch that we want to include in the main (some other branch) as a PR
 
 to fork a GitHub repository
 - is to have pull the entire project of the concerned repo in your personal space
@@ -31,6 +53,8 @@ to fork a GitHub repository
 - scenario can be, you forked the kafka open source project repo, added custom audit logger impls, then wants to forward it to your forked kafka repo to run it with your newly added feature
 - for worthy changes, you might request the official kafka repo maintainer for review by sending a PR through your forked kafka repo
 
-Merge Conflicts
-- courtesy to git
-- changes when contradicts, for instance, same line of code is changed in two commits in two different branches
+
+Merge vs Rebase
+- the prior refers combining varying changes of two diff branches usually into a long-lived branch
+    - marked by the commit after merge
+>>>>>>> a982fa7 (commensing rebase)
