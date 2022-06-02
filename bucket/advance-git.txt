@@ -26,9 +26,6 @@ MR (GitLab) vs PR (GitHub)
 
 Merge Conflicts
 - courtesy to git
-<<<<<<< HEAD
-- changes when contradicts, for instance, same line of code is changed in two commits in two different branches
-=======
 - changes when contradicts, for instance, same line of code is changed in two commits in two different branches
 - conflicts marker:
     - after merge command -- CONFLICT (content): Merge conflict in <fileName>
@@ -57,4 +54,5 @@ to fork a GitHub repository
 Merge vs Rebase
 - the prior refers combining varying changes of two diff branches usually into a long-lived branch
     - marked by the commit after merge
->>>>>>> a982fa7 (commensing rebase)
+- the latter rewrites the commit history, in a sense append the commits from the branches
+    -
