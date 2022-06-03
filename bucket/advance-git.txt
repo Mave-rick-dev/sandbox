@@ -48,13 +48,15 @@ to fork a GitHub repository
 - scenario can be, you forked the kafka open source project repo, added custom audit logger impls, then wants to forward it to your forked kafka repo to run it with your newly added feature
 - for worthy changes, you might request the official kafka repo maintainer for review by sending a PR through your forked kafka repo
 
+changes to push
+
 
 Merge vs Rebase
 
 Scenario: Want to migrate changes from B2 into B1
-(CC)--->(C1)-->(C2)-->(C2)    ]--------------------] Branch-1: development
+(CC)--->(C1)-->(C2)-->(C2)    ]--------------------] Branch-1: development newton
    |
-   |-->(CA)-->(CB)            ]--------------------] Branch-2: fixes
+   |-->(CA)-->(CB)            ]--------------------] Branch-2: fixes ktj
 
 
 Git Merge flow:
